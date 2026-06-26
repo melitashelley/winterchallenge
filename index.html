@@ -1,0 +1,1629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover, interactive-widget=resizes-content">
+<meta name="theme-color" content="#000000">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="Big5 Winter">
+<link rel="apple-touch-icon" href="https://drive.google.com/uc?export=view&id=1VDDhnxuEKdP21garYWZSH2sFBzbcL4k5">
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<title>Big5 Winter Series 2026</title>
+
+
+<style>
+  :root {
+    --black: #000;
+    --white: #fff;
+    --ice: #4A9CC4;
+    --ice-light: #EBF4FD;
+    --ice-dark: #0C447C;
+    --gray-bg: #f5f5f5;
+    --gray-border: #e0e0e0;
+    --gray-text: #888;
+    --green: #27a060;
+    --red: #E24B4A;
+    --tab-h: 58px;
+    --topbar-h: 48px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--black);
+    color: var(--black);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  #app {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    max-width: none;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    background: var(--white);
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
+  /* Desktop only: centre in a column — only on non-touch devices with mouse */
+  @media (min-width: 900px) and (hover: hover) and (pointer: fine) {
+    #app {
+      left: 50%;
+      right: auto;
+      width: 480px;
+      max-width: 480px;
+      transform: translateX(-50%);
+    }
+  }
+
+  /* TOP BAR */
+  .topbar {
+    background: var(--black);
+    height: var(--topbar-h);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    flex-shrink: 0;
+    z-index: 10;
+  }
+  .topbar-logo { color: var(--white); font-size: 13px; font-weight: 600; letter-spacing: 0.08em; }
+  .topbar-title { color: rgba(255,255,255,0.55); font-size: 11px; }
+
+  /* SCREENS */
+  .screens {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+  }
+  .screen {
+    position: absolute;
+    inset: 0;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    display: none;
+    background: var(--gray-bg);
+    padding-bottom: 8px;
+  }
+  .screen.active { display: block; }
+
+  /* TAB BAR */
+  .tabbar {
+    background: var(--white);
+    border-top: 1px solid var(--gray-border);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    height: calc(var(--tab-h) + env(safe-area-inset-bottom));
+    padding-bottom: env(safe-area-inset-bottom);
+    flex-shrink: 0;
+  }
+  .tab {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    cursor: pointer;
+    padding: 6px 0;
+    transition: opacity 0.15s;
+    border: none;
+    background: none;
+  }
+  .tab-icon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .tab-icon svg { width: 22px; height: 22px; }
+  .tab-label { font-size: 10px; color: var(--gray-text); transition: color 0.15s; }
+  .tab.active .tab-label { color: var(--black); font-weight: 600; }
+  .tab svg { opacity: 0.35; transition: opacity 0.15s; }
+  .tab.active svg { opacity: 1; }
+
+  /* CARDS / SECTIONS */
+  .card {
+    background: var(--white);
+    border-radius: 12px;
+    margin: 10px 12px 0;
+    overflow: hidden;
+    border: 1px solid var(--gray-border);
+  }
+  .card-section {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--gray-border);
+  }
+  .card-section:last-child { border-bottom: none; }
+  .section-title { font-size: 13px; font-weight: 600; margin-bottom: 4px; }
+  .section-sub { font-size: 12px; color: var(--gray-text); line-height: 1.5; margin-bottom: 10px; }
+
+  /* BUTTONS */
+  .btn-primary {
+    background: var(--black);
+    color: var(--white);
+    border: none;
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 15px;
+    font-weight: 600;
+    width: 100%;
+    cursor: pointer;
+    transition: opacity 0.15s;
+    text-align: center;
+    display: block;
+  }
+  .btn-primary:active { opacity: 0.7; }
+  .btn-outline {
+    background: none;
+    color: var(--black);
+    border: 1.5px solid var(--black);
+    border-radius: 10px;
+    padding: 13px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    width: 100%;
+    cursor: pointer;
+    transition: opacity 0.15s;
+    text-align: center;
+    display: block;
+  }
+  .btn-outline:active { opacity: 0.6; }
+
+  /* RADIO OPTIONS */
+  .options { display: flex; flex-direction: column; gap: 8px; }
+  .option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 14px;
+    border: 1.5px solid var(--gray-border);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s;
+    font-size: 14px;
+    background: var(--white);
+  }
+  .option.selected {
+    border-color: var(--ice);
+    background: var(--ice-light);
+  }
+  .option-radio {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 2px solid var(--gray-border);
+    flex-shrink: 0;
+    transition: border-color 0.15s, background 0.15s;
+    position: relative;
+  }
+  .option.selected .option-radio {
+    border-color: var(--ice);
+    background: var(--ice);
+  }
+  .option.selected .option-radio::after {
+    content: '';
+    position: absolute;
+    top: 3px; left: 3px;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: white;
+  }
+  .option-pts { margin-left: auto; font-size: 12px; color: var(--gray-text); white-space: nowrap; }
+  .option.selected .option-pts { color: var(--ice-dark); }
+
+  /* NOTICE BANNER */
+  .notice {
+    margin: 12px;
+    border-radius: 10px;
+    padding: 11px 14px;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .notice-info { background: var(--ice-light); color: var(--ice-dark); }
+  .notice-success { background: #e8f5e9; color: #1b5e20; }
+  .notice-warn { background: #fff8e1; color: #6d4c00; }
+  .notice-error { background: #fdecea; color: #8b1a1a; }
+
+  /* HOME SCREEN */
+  .hero {
+    background: #1a1a1a;
+    padding: 22px 16px 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #1a1a1a 40%, #1e2f3d 100%);
+  }
+  .hero-content { position: relative; z-index: 1; }
+  .hero h1 { font-size: 28px; font-weight: 700; color: var(--white); line-height: 1.15; }
+  .hero h1 span { color: var(--ice); }
+  .hero-sub { font-size: 12px; color: rgba(255,255,255,0.45); margin-top: 6px; }
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-top: 16px;
+  }
+  .hero-stat {
+    background: rgba(255,255,255,0.08);
+    border-radius: 8px;
+    padding: 9px 10px;
+  }
+  .hero-stat-label { font-size: 10px; color: rgba(255,255,255,0.4); }
+  .hero-stat-val { font-size: 20px; font-weight: 700; color: var(--white); margin-top: 1px; }
+  .home-ctas { padding: 12px; display: flex; flex-direction: column; gap: 8px; background: var(--white); }
+
+  /* PRIZE CARDS */
+  .prize-card {
+    border: 1.5px solid var(--gray-border);
+    border-radius: 10px;
+    padding: 11px 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  .prize-card:last-child { margin-bottom: 0; }
+  .prize-card.top { border: 2px solid var(--black); }
+  .prize-name { font-size: 13px; font-weight: 600; }
+  .prize-sub { font-size: 11px; color: var(--gray-text); margin-top: 2px; }
+  .prize-amount { font-size: 16px; font-weight: 700; }
+  .prize-card:not(.top) .prize-amount { color: var(--ice); }
+
+  /* LEADERBOARD */
+  .lb-header {
+    display: grid;
+    grid-template-columns: 36px 1fr 56px 44px;
+    padding: 7px 14px;
+    font-size: 11px;
+    color: var(--gray-text);
+    background: var(--gray-bg);
+    border-bottom: 1px solid var(--gray-border);
+  }
+  .lb-row {
+    display: grid;
+    grid-template-columns: 36px 1fr 56px 44px;
+    padding: 10px 14px;
+    font-size: 13px;
+    border-bottom: 1px solid var(--gray-border);
+    align-items: center;
+  }
+  .lb-row:last-child { border-bottom: none; }
+  .lb-row.me { background: var(--ice-light); }
+  .lb-rank { font-size: 12px; color: var(--gray-text); }
+  .lb-rank.medal { font-size: 16px; }
+  .lb-name { font-weight: 500; }
+  .lb-row.me .lb-name { color: var(--ice-dark); font-weight: 600; }
+  .lb-pts { font-weight: 600; text-align: right; }
+  .lb-entries { font-size: 11px; color: var(--gray-text); text-align: right; }
+
+  /* MY SUBMISSIONS */
+  .sub-row {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--gray-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .sub-row:last-child { border-bottom: none; }
+  .sub-date { font-size: 13px; font-weight: 600; }
+  .sub-detail { font-size: 12px; color: var(--gray-text); margin-top: 3px; line-height: 1.5; }
+  .sub-pts { font-size: 15px; font-weight: 700; color: var(--ice); white-space: nowrap; margin-left: 10px; }
+
+  /* WHEEL SCREEN */
+  .wheel-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px;
+    background: var(--white);
+  }
+  #wheel-canvas {
+    border-radius: 50%;
+    touch-action: none;
+  }
+  .spin-btn {
+    background: var(--black);
+    color: var(--white);
+    border: none;
+    border-radius: 10px;
+    padding: 16px;
+    font-size: 18px;
+    font-weight: 700;
+    width: 100%;
+    cursor: pointer;
+    letter-spacing: 0.04em;
+    margin-top: 16px;
+    transition: opacity 0.15s;
+  }
+  .spin-btn:disabled { opacity: 0.4; cursor: default; }
+  .spin-btn:not(:disabled):active { opacity: 0.7; }
+
+  .result-card {
+    margin: 12px;
+    border-radius: 12px;
+    padding: 16px;
+    background: var(--ice-light);
+    border: 1.5px solid var(--ice);
+    text-align: center;
+    display: none;
+  }
+  .result-card.show { display: block; }
+  .result-name { font-size: 16px; font-weight: 700; color: var(--ice-dark); }
+  .result-pts { font-size: 24px; font-weight: 700; margin-top: 4px; }
+
+  /* NAME PICKER OVERLAY */
+  #name-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.75);
+    z-index: 100;
+    display: flex;
+    align-items: flex-end;
+    display: none;
+  }
+  #name-overlay.show { display: flex; }
+  .name-sheet {
+    background: var(--white);
+    border-radius: 20px 20px 0 0;
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 24px 20px 32px;
+  }
+  .name-sheet h2 { font-size: 18px; font-weight: 700; margin-bottom: 6px; }
+  .name-sheet p { font-size: 13px; color: var(--gray-text); margin-bottom: 16px; }
+  #name-select {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 15px;
+    border: 1.5px solid var(--gray-border);
+    border-radius: 10px;
+    background: var(--white);
+    margin-bottom: 14px;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  /* SELECT DROPDOWNS */
+  .select-field {
+    width: 100%;
+    padding: 11px 14px;
+    font-size: 14px;
+    border: 1.5px solid var(--gray-border);
+    border-radius: 10px;
+    background: var(--white);
+    -webkit-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 36px;
+  }
+
+  /* TEXTAREA */
+  .textarea-field {
+    width: 100%;
+    padding: 11px 14px;
+    font-size: 14px;
+    border: 1.5px solid var(--gray-border);
+    border-radius: 10px;
+    font-family: inherit;
+    resize: none;
+    min-height: 80px;
+    line-height: 1.5;
+  }
+  .textarea-field:focus, .select-field:focus, #name-select:focus {
+    outline: none;
+    border-color: var(--ice);
+  }
+
+  /* LOADING */
+  .loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    color: var(--gray-text);
+    font-size: 13px;
+    gap: 10px;
+  }
+  .spinner {
+    width: 18px; height: 18px;
+    border: 2px solid var(--gray-border);
+    border-top-color: var(--black);
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* SEGMENTS TABLE */
+  .seg-list { overflow: hidden; border-radius: 10px; border: 1px solid var(--gray-border); background: var(--white); margin: 10px 12px 0; }
+  .seg-header { background: var(--gray-bg); padding: 7px 14px; font-size: 11px; color: var(--gray-text); border-bottom: 1px solid var(--gray-border); }
+  .seg-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 14px;
+    font-size: 13px;
+    border-bottom: 1px solid var(--gray-border);
+  }
+  .seg-row:last-child { border-bottom: none; }
+  .seg-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .seg-pts { margin-left: auto; color: var(--gray-text); font-size: 12px; }
+
+  /* PROFILE BAR */
+  .profile-bar {
+    background: var(--gray-bg);
+    padding: 10px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--gray-border);
+  }
+  .profile-bar-name { font-size: 13px; font-weight: 600; }
+  .profile-bar-change { font-size: 12px; color: var(--ice-dark); text-decoration: none; cursor: pointer; }
+
+  /* EMPTY STATE */
+  .empty { text-align: center; padding: 40px 24px; color: var(--gray-text); font-size: 13px; line-height: 1.6; }
+
+  /* TOAST */
+  #toast {
+    position: fixed;
+    bottom: calc(var(--tab-h) + 16px);
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: var(--black);
+    color: var(--white);
+    padding: 12px 20px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    z-index: 200;
+    opacity: 0;
+    transition: opacity 0.2s, transform 0.2s;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+  #toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  .mt-10 { margin-top: 10px; }
+  .pb-12 { padding-bottom: 12px; }
+
+  /* WEEK DAY PICKER */
+  .week-day-picker { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 4px; -webkit-overflow-scrolling: touch; }
+  .week-day-picker::-webkit-scrollbar { display: none; }
+  .day-chip {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px 10px;
+    border-radius: 10px;
+    border: 1.5px solid var(--gray-border);
+    cursor: pointer;
+    min-width: 44px;
+    transition: all 0.15s;
+    background: var(--white);
+  }
+  .day-chip.selected { border-color: var(--black); background: var(--black); color: var(--white); }
+  .day-chip.done { border-color: var(--green); background: #e8f5e9; color: var(--green); cursor: default; pointer-events: none; }
+  .day-chip.future { opacity: 0.3; cursor: default; pointer-events: none; }
+  .day-chip-name { font-size: 11px; font-weight: 600; }
+  .day-chip-num { font-size: 13px; font-weight: 700; margin-top: 1px; }
+  .day-chip-tick { font-size: 14px; margin-top: 1px; }
+</style>
+</head>
+<body>
+
+<div id="app">
+  <div class="topbar">
+    <span class="topbar-logo">BIG5 FITNESS.</span>
+    <span class="topbar-title" id="topbar-title">Winter Series 2026</span>
+  </div>
+
+  <div class="screens">
+
+    <!-- HOME -->
+    <div class="screen active" id="screen-home">
+      <div class="hero">
+        <div class="hero-content">
+          <h1>Winter<br>Series <span>2026</span></h1>
+          <p class="hero-sub">Stay consistent. Earn points. Win big.</p>
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <div class="hero-stat-label">Your points</div>
+              <div class="hero-stat-val" id="home-points">...</div>
+            </div>
+            <div class="hero-stat">
+              <div class="hero-stat-label">Your rank</div>
+              <div class="hero-stat-val" id="home-rank">...</div>
+            </div>
+            <div class="hero-stat">
+              <div class="hero-stat-label">Draw entries</div>
+              <div class="hero-stat-val" id="home-entries">...</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="home-notice"></div>
+
+      <div class="home-ctas">
+        <button class="btn-primary" onclick="goTab('log')">Log today's activity</button>
+        <!-- Wheel button hidden until re-enabled
+        <button class="btn-outline" onclick="goTab('wheel')">Spin the wheel</button>
+        -->
+      </div>
+
+      <div class="card">
+        <div class="card-section">
+          <div class="section-title">How it works</div>
+          <p class="section-sub" style="margin-bottom:0;">The Winter Series runs for 8 weeks from Mon 15 June. Earn points through training, steps and weekly fitness challenges. Every 10 points = 1 entry into the prize draw.</p>
+        </div>
+      </div>
+
+      <div class="card" style="margin-bottom:12px;">
+        <div class="card-section">
+          <div class="section-title">Prize levels</div>
+        </div>
+        <div style="padding:10px 14px 14px;">
+          <div class="prize-card">
+            <div>
+              <div class="prize-name">Level 1, 120 points minimum</div>
+              <div class="prize-sub">3 winners</div>
+            </div>
+            <div class="prize-amount">$100</div>
+          </div>
+          <div class="prize-card">
+            <div>
+              <div class="prize-name">Level 2, 300 points minimum</div>
+              <div class="prize-sub">2 winners</div>
+            </div>
+            <div class="prize-amount">$250</div>
+          </div>
+          <div class="prize-card top">
+            <div>
+              <div class="prize-name">Level 3, 420 points minimum</div>
+              <div class="prize-sub">1 winner</div>
+            </div>
+            <div class="prize-amount">$1,000</div>
+          </div>
+          <p style="font-size:11px;color:var(--gray-text);margin-top:10px;line-height:1.6;">All prizes drawn at the end of 8 weeks. The more points you earn, the more entries you get. There may also be surprise mystery prizes throughout the challenge!</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- LOG -->
+    <div class="screen" id="screen-log">
+      <div class="profile-bar">
+        <span class="profile-bar-name" id="log-name-display">Select your name</span>
+        <span class="profile-bar-change" onclick="showNamePicker()">Change</span>
+      </div>
+
+      <div class="card" style="margin-top:10px;">
+        <div class="card-section">
+          <div class="section-title">Which day are you logging for?</div>
+          <p class="section-sub">You can log any day this week up until Sunday.</p>
+          <div class="week-day-picker" id="week-day-picker">
+            <div class="loading"><div class="spinner"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="log-already-submitted" class="notice notice-warn" style="display:none;">
+        You have already logged this day. Pick another day above or come back tomorrow!
+      </div>
+
+      <div id="log-form">
+        <div class="card">
+          <div class="card-section">
+            <div class="section-title">Did you do a class today?</div>
+            <p class="section-sub">This will be matched with your check-ins at the gym.</p>
+            <div class="options" id="class-options">
+              <div class="option selected" data-val="yes" data-pts="3" onclick="selectOption('class', this)">
+                <div class="option-radio"></div>
+                <span>Yes</span>
+                <span class="option-pts">3 pts</span>
+              </div>
+              <div class="option" data-val="no" data-pts="0" onclick="selectOption('class', this)">
+                <div class="option-radio"></div>
+                <span>No</span>
+                <span class="option-pts">0 pts</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-section">
+            <div class="section-title">Steps</div>
+            <div class="options" id="steps-options">
+              <div class="option" data-val="8000" data-pts="2" onclick="selectOption('steps', this)">
+                <div class="option-radio"></div>
+                <span>More than 8,000 steps</span>
+                <span class="option-pts">2 pts</span>
+              </div>
+              <div class="option" data-val="12000" data-pts="3" onclick="selectOption('steps', this)">
+                <div class="option-radio"></div>
+                <span>More than 12,000 steps</span>
+                <span class="option-pts">3 pts</span>
+              </div>
+              <div class="option selected" data-val="none" data-pts="0" onclick="selectOption('steps', this)">
+                <div class="option-radio"></div>
+                <span>Did not reach today</span>
+                <span class="option-pts">0 pts</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-section">
+            <div class="section-title">Fitness challenge</div>
+            <p class="section-sub">Max one per day. Tell a coach before you start.</p>
+            <div id="challenge-options" class="options">
+              <div class="loading"><div class="spinner"></div> Loading challenges...</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-section">
+            <div class="section-title">Any comments?</div>
+            <textarea id="log-comments" class="textarea-field" placeholder="Optional..."></textarea>
+          </div>
+        </div>
+
+        <div style="padding:12px;">
+          <button class="btn-primary" id="log-submit-btn" onclick="submitLog()">
+            Submit
+          </button>
+          <p style="font-size:11px;color:var(--gray-text);text-align:center;margin-top:8px;" id="log-points-preview"></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- WHEEL — hidden until redesigned
+    <div class="screen" id="screen-wheel" style="display:none">
+      <div class="wheel-wrap">
+        <p style="font-size:12px;color:var(--gray-text);text-align:center;margin-bottom:14px;" id="wheel-tagline">
+          Spin for bonus points on top of your daily log. Totally optional!
+        </p>
+
+        <div id="wheel-not-today" style="display:none;" class="notice notice-warn" style="width:100%;text-align:center;">
+          <strong id="wheel-not-today-msg"></strong>
+        </div>
+
+        <canvas id="wheel-canvas" width="280" height="280"></canvas>
+
+        <button class="spin-btn" id="spin-btn" onclick="spinWheel()">Spin!</button>
+        <p style="font-size:11px;color:var(--gray-text);text-align:center;margin-top:10px;" id="spin-hint">One spin per spin day. Result is saved automatically.</p>
+      </div>
+
+      <div id="spin-result" class="result-card">
+        <div id="spin-result-name" class="result-name"></div>
+        <div id="spin-result-pts" class="result-pts"></div>
+        <p style="font-size:12px;color:var(--ice-dark);margin-top:6px;">Points added to your total!</p>
+      </div>
+
+      <div class="seg-list" id="seg-list">
+        <div class="seg-header">This week's wheel</div>
+        <div class="loading"><div class="spinner"></div> Loading...</div>
+      </div>
+
+      <div style="padding:10px 12px 12px;font-size:11px;color:var(--gray-text);text-align:center;" id="spin-days-label"></div>
+    </div>
+    --> <!-- end wheel screen -->
+
+    <!-- LEADERBOARD -->
+    <div class="screen" id="screen-board">
+      <div class="card" style="margin-bottom:0;">
+        <div id="leaderboard-content">
+          <div class="loading"><div class="spinner"></div> Loading leaderboard...</div>
+        </div>
+      </div>
+      <p style="padding:10px 14px;font-size:11px;color:var(--gray-text);text-align:center;">Updated live from Google Sheets. Every 10 points = 1 prize draw entry.</p>
+    </div>
+
+    <!-- MINE -->
+    <div class="screen" id="screen-mine">
+      <div class="profile-bar">
+        <span class="profile-bar-name" id="mine-name-display">Select your name</span>
+        <span class="profile-bar-change" onclick="showNamePicker()">Change</span>
+      </div>
+      <div id="mine-content">
+        <div class="loading"><div class="spinner"></div> Loading your activity...</div>
+      </div>
+    </div>
+
+  </div><!-- /screens -->
+
+  <div class="tabbar">
+    <button class="tab active" data-tab="home" onclick="goTab('home')">
+      <div class="tab-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/><path d="M9 21V12h6v9"/>
+        </svg>
+      </div>
+      <span class="tab-label">Home</span>
+    </button>
+    <button class="tab" data-tab="log" onclick="goTab('log')">
+      <div class="tab-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
+        </svg>
+      </div>
+      <span class="tab-label">Log</span>
+    </button>
+    <!-- Wheel tab hidden until redesigned
+    <button class="tab" data-tab="wheel" onclick="goTab('wheel')">
+      <div class="tab-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/>
+          <line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/>
+          <line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/>
+        </svg>
+      </div>
+      <span class="tab-label">Wheel</span>
+    </button>
+    -->
+    <button class="tab" data-tab="board" onclick="goTab('board')">
+      <div class="tab-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/>
+          <line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/>
+        </svg>
+      </div>
+      <span class="tab-label">Board</span>
+    </button>
+    <button class="tab" data-tab="mine" onclick="goTab('mine')">
+      <div class="tab-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/>
+        </svg>
+      </div>
+      <span class="tab-label">Mine</span>
+    </button>
+  </div>
+</div>
+
+<!-- NAME PICKER OVERLAY -->
+<div id="name-overlay">
+  <div class="name-sheet">
+    <h2>Who are you?</h2>
+    <p>Pick your name once and the app remembers you.</p>
+    <select id="name-select" class="select-field">
+      <option value="">Loading names...</option>
+    </select>
+    <button class="btn-primary" onclick="confirmName()">Confirm</button>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script>
+// ============================================================
+// CONFIG
+// ============================================================
+
+// Uses google.script.run to call server functions directly
+
+// ============================================================
+// STATE
+// ============================================================
+
+var state = {
+  name: localStorage.getItem('big5_name') || '',
+  config: null,
+  leaderboard: null,
+  currentTab: 'home',
+  spinResult: null,
+  hasSubmittedToday: false,
+  hasSpunToday: false,
+  wheelAngle: 0,
+  isSpinning: false
+};
+
+var selections = {
+  class: { val: 'yes', pts: 3 },
+  steps: { val: 'none', pts: 0 },
+  challenge: { val: 'NA', pts: 0, name: 'N/A' }
+};
+
+var weekStatus = { submittedDates: [], spunDates: [] };
+
+// ============================================================
+// API
+// ============================================================
+
+function api(action, extra) {
+  return new Promise(function(resolve, reject) {
+    var runner = google.script.run
+      .withSuccessHandler(resolve)
+      .withFailureHandler(function(err) { reject(new Error(err.message || err)); });
+
+    if (action === 'getConfig')          runner.getConfig();
+    else if (action === 'getLeaderboard')     runner.getLeaderboard();
+    else if (action === 'getMySubmissions')   runner.getMySubmissions(extra.name);
+    else if (action === 'submitEntry')        runner.submitEntry(extra.entry);
+    else if (action === 'submitSpin')         runner.submitSpin(extra.spin);
+    else if (action === 'checkTodayStatus')   runner.checkTodayStatus(extra.name);
+    else if (action === 'getWeekStatus')      runner.getWeekStatus(extra.name);
+  });
+}
+
+// ============================================================
+// INIT
+// ============================================================
+
+window.addEventListener('load', function() {
+  loadConfig().then(function() {
+    if (!state.name) {
+      showNamePicker();
+    } else {
+      refreshHomeStats();
+      checkTodayStatus();
+    }
+  });
+});
+
+function loadConfig() {
+  return api('getConfig').then(function(cfg) {
+    state.config = cfg;
+    populateNameDropdown(cfg.members);
+    renderChallenges(cfg.challenges);
+    renderWheel(cfg.segments);
+    renderSegList(cfg.segments, cfg.spinDays);
+    updateWheelAvailability(cfg.spinDays);
+    // Show/hide wheel tab based on config
+    applyWheelVisibility(cfg.wheelVisible !== false);
+  }).catch(function(err) {
+    console.error('Config load error:', err);
+  });
+}
+
+function checkTodayStatus() {
+  if (!state.name) return;
+  api('checkTodayStatus', { name: state.name }).then(function(res) {
+    state.hasSubmittedToday = res.hasSubmitted;
+    state.hasSpunToday = res.hasSpun;
+    updateLogScreen();
+    updateWheelScreen();
+    updateHomeNotice();
+  });
+}
+
+// ============================================================
+// NAVIGATION
+// ============================================================
+
+var screenTitles = {
+  home: 'Winter Series 2026',
+  log: 'Log today',
+  wheel: 'Spin the wheel',
+  board: 'Leaderboard',
+  mine: 'My activity'
+};
+
+function goTab(tab) {
+  document.querySelectorAll('.screen').forEach(function(s) { s.classList.remove('active'); });
+  document.querySelectorAll('.tab').forEach(function(t) { t.classList.remove('active'); });
+  document.getElementById('screen-' + tab).classList.add('active');
+  document.querySelector('[data-tab="' + tab + '"]').classList.add('active');
+  document.getElementById('topbar-title').textContent = screenTitles[tab];
+  state.currentTab = tab;
+
+  if (tab === 'board') loadLeaderboard();
+  if (tab === 'mine') loadMine();
+  if (tab === 'home') refreshHomeStats();
+  if (tab === 'log' && state.name) loadWeekStatus();
+}
+
+// ============================================================
+// HOME
+// ============================================================
+
+function refreshHomeStats() {
+  if (!state.name) return;
+  api('getMySubmissions', { name: state.name }).then(function(res) {
+    if (!res) return;
+    document.getElementById('home-points').textContent = res.totalPoints || 0;
+    document.getElementById('home-entries').textContent = res.drawEntries || 0;
+
+    // Get rank from leaderboard
+    api('getLeaderboard').then(function(lb) {
+      state.leaderboard = lb.leaderboard;
+      var me = lb.leaderboard.find(function(r) { return r.name === state.name; });
+      document.getElementById('home-rank').textContent = me ? '#' + me.rank : 'N/A';
+    }).catch(function() {});
+  }).catch(function() {});
+}
+
+function updateHomeNotice() {
+  var el = document.getElementById('home-notice');
+  if (!state.name) {
+    el.innerHTML = '';
+    return;
+  }
+  if (!state.hasSubmittedToday) {
+    el.innerHTML = '<div class="notice notice-info">You have not logged today yet. Tap Log to earn your points!</div>';
+  } else {
+    el.innerHTML = '<div class="notice notice-success">Today\'s activity logged. Well done!</div>';
+  }
+}
+
+// ============================================================
+// NAME PICKER
+// ============================================================
+
+function populateNameDropdown(members) {
+  var sel = document.getElementById('name-select');
+  sel.innerHTML = '<option value="">Select your name...</option>';
+  members.forEach(function(name) {
+    var opt = document.createElement('option');
+    opt.value = name;
+    opt.textContent = name;
+    if (name === state.name) opt.selected = true;
+    sel.appendChild(opt);
+  });
+}
+
+function showNamePicker() {
+  document.getElementById('name-overlay').classList.add('show');
+}
+
+function confirmName() {
+  var sel = document.getElementById('name-select');
+  var name = sel.value;
+  if (!name) { showToast('Please select your name'); return; }
+  state.name = name;
+  localStorage.setItem('big5_name', name);
+  document.getElementById('name-overlay').classList.remove('show');
+  document.getElementById('log-name-display').textContent = name;
+  document.getElementById('mine-name-display').textContent = name;
+  state.selectedDate = getTodayLocal();
+  refreshHomeStats();
+  checkTodayStatus();
+  loadWeekStatus();
+  if (state.currentTab === 'mine') loadMine();
+}
+
+// ============================================================
+// LOG SCREEN
+// ============================================================
+
+function updateLogScreen() {
+  var nameDisplay = document.getElementById('log-name-display');
+  nameDisplay.textContent = state.name || 'Select your name';
+  updateDaySubmittedNotice();
+}
+
+function loadWeekStatus() {
+  if (!state.name) return;
+  api('getWeekStatus', { name: state.name }).then(function(res) {
+    weekStatus = res;
+    // Default selected date to today
+    if (!state.selectedDate) state.selectedDate = getTodayLocal();
+    renderWeekDayPicker();
+    updateDaySubmittedNotice();
+  }).catch(function(err) {
+    console.error('Week status error:', err);
+  });
+}
+
+function getTodayLocal() {
+  var d = new Date();
+  return d.getFullYear() + '-' +
+    String(d.getMonth() + 1).padStart(2, '0') + '-' +
+    String(d.getDate()).padStart(2, '0');
+}
+
+function renderWeekDayPicker() {
+  var container = document.getElementById('week-day-picker');
+  var today = getTodayLocal();
+  var dayNames = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+
+  // Find Monday of current week
+  var d = new Date();
+  var dow = d.getDay(); // 0=Sun
+  var daysFromMon = dow === 0 ? 6 : dow - 1;
+  var monday = new Date(d);
+  monday.setDate(d.getDate() - daysFromMon);
+
+  container.innerHTML = '';
+  for (var i = 0; i < 7; i++) {
+    var day = new Date(monday);
+    day.setDate(monday.getDate() + i);
+    var dateStr = day.getFullYear() + '-' +
+      String(day.getMonth() + 1).padStart(2, '0') + '-' +
+      String(day.getDate()).padStart(2, '0');
+
+    var isFuture = dateStr > today;
+    var isDone = weekStatus.submittedDates.indexOf(dateStr) !== -1;
+    var isSelected = dateStr === state.selectedDate;
+
+    var chip = document.createElement('div');
+    chip.className = 'day-chip' +
+      (isFuture ? ' future' : '') +
+      (isDone ? ' done' : '') +
+      (!isFuture && !isDone && isSelected ? ' selected' : '');
+    chip.setAttribute('data-date', dateStr);
+
+    if (isDone) {
+      chip.innerHTML = '<span class="day-chip-name">' + dayNames[i] + '</span>' +
+        '<span class="day-chip-tick">✓</span>';
+    } else {
+      chip.innerHTML = '<span class="day-chip-name">' + dayNames[i] + '</span>' +
+        '<span class="day-chip-num">' + day.getDate() + '</span>';
+    }
+
+    if (!isFuture && !isDone) {
+      chip.onclick = (function(ds, el) {
+        return function() { selectDay(ds, el); };
+      })(dateStr, chip);
+    }
+
+    container.appendChild(chip);
+  }
+}
+
+function selectDay(dateStr, el) {
+  state.selectedDate = dateStr;
+  document.querySelectorAll('.day-chip').forEach(function(c) {
+    if (!c.classList.contains('done') && !c.classList.contains('future')) {
+      c.classList.remove('selected');
+    }
+  });
+  el.classList.add('selected');
+  updateDaySubmittedNotice();
+}
+
+function updateDaySubmittedNotice() {
+  var alreadyEl = document.getElementById('log-already-submitted');
+  if (!alreadyEl) return;
+  var isAlreadyDone = state.selectedDate &&
+    weekStatus.submittedDates.indexOf(state.selectedDate) !== -1;
+  alreadyEl.style.display = isAlreadyDone ? 'block' : 'none';
+}
+
+function renderChallenges(challenges) {
+  var container = document.getElementById('challenge-options');
+  container.innerHTML = '';
+
+  // N/A first
+  var naDiv = document.createElement('div');
+  naDiv.className = 'option selected';
+  naDiv.setAttribute('data-val', 'NA');
+  naDiv.setAttribute('data-pts', '0');
+  naDiv.setAttribute('data-name', 'N/A');
+  naDiv.setAttribute('onclick', 'selectOption("challenge", this)');
+  naDiv.innerHTML = '<div class="option-radio"></div><span>N/A</span><span class="option-pts"></span>';
+  container.appendChild(naDiv);
+
+  challenges.forEach(function(ch) {
+    var div = document.createElement('div');
+    div.className = 'option';
+    div.setAttribute('data-val', ch.name);
+    div.setAttribute('data-pts', ch.points);
+    div.setAttribute('data-name', ch.name);
+    div.setAttribute('onclick', 'selectOption("challenge", this)');
+    div.innerHTML = '<div class="option-radio"></div><span>' + ch.name + '</span><span class="option-pts">' + ch.points + ' pts</span>';
+    container.appendChild(div);
+  });
+}
+
+function selectOption(group, el) {
+  var container = el.parentElement;
+  container.querySelectorAll('.option').forEach(function(o) { o.classList.remove('selected'); });
+  el.classList.add('selected');
+  selections[group] = {
+    val: el.getAttribute('data-val'),
+    pts: parseInt(el.getAttribute('data-pts')) || 0,
+    name: el.getAttribute('data-name') || el.getAttribute('data-val')
+  };
+  updatePointsPreview();
+}
+
+function updatePointsPreview() {
+  var total = (selections.class.pts || 0) + (selections.steps.pts || 0) + (selections.challenge.pts || 0);
+  var btn = document.getElementById('log-submit-btn');
+  var preview = document.getElementById('log-points-preview');
+  btn.textContent = total > 0 ? 'Submit, earn ' + total + ' pts today' : 'Submit';
+  preview.textContent = total > 0 ? 'Keep going! Every point counts.' : '';
+}
+
+function submitLog() {
+  if (!state.name) { showNamePicker(); return; }
+
+  var btn = document.getElementById('log-submit-btn');
+  btn.textContent = 'Submitting...';
+  btn.disabled = true;
+
+  var entry = {
+    name: state.name,
+    date: state.selectedDate || getTodayLocal(),
+    classAttended: selections.class.val === 'yes',
+    classPoints: selections.class.pts,
+    stepsOption: selections.steps.val,
+    stepsPoints: selections.steps.pts,
+    challengeName: selections.challenge.name,
+    challengePoints: selections.challenge.pts,
+    comments: document.getElementById('log-comments').value
+  };
+
+  function resetBtn() {
+    btn.textContent = 'Submit';
+    btn.disabled = false;
+    updatePointsPreview();
+  }
+
+  // Safety net — GAS sometimes hangs without calling either handler
+  var giveUp = setTimeout(function() {
+    showToast('Server took too long. Please try again.');
+    resetBtn();
+  }, 25000);
+
+  api('submitEntry', { entry: entry }).then(function(res) {
+    clearTimeout(giveUp);
+    if (res && res.success) {
+      state.hasSubmittedToday = true;
+      if (res.date) weekStatus.submittedDates.push(res.date);
+      renderWeekDayPicker();
+      updateLogScreen();
+      updateHomeNotice();
+      showToast('Logged! You earned ' + res.totalPoints + ' pts');
+      refreshHomeStats();
+    } else {
+      showToast((res && res.error) || 'Something went wrong. Try again.');
+    }
+    resetBtn();
+  }).catch(function() {
+    clearTimeout(giveUp);
+    showToast('Could not connect. Check your connection and try again.');
+    resetBtn();
+  });
+}
+
+// ============================================================
+// WHEEL
+// ============================================================
+
+var wheelCtx, wheelSegments = [], wheelCurrentAngle = 0;
+
+function renderWheel(segments) {
+  wheelSegments = segments;
+  var canvas = document.getElementById('wheel-canvas');
+  if (!canvas) return;
+  wheelCtx = canvas.getContext('2d');
+  drawWheel(0);
+}
+
+function drawWheel(rotation) {
+  if (!wheelCtx || !wheelSegments.length) return;
+  var canvas = document.getElementById('wheel-canvas');
+  var cx = canvas.width / 2;
+  var cy = canvas.height / 2;
+  var r = cx - 8;
+  var n = wheelSegments.length;
+  var arc = (2 * Math.PI) / n;
+
+  wheelCtx.clearRect(0, 0, canvas.width, canvas.height);
+
+  wheelSegments.forEach(function(seg, i) {
+    var start = rotation + i * arc - Math.PI / 2;
+    var end = start + arc;
+
+    wheelCtx.beginPath();
+    wheelCtx.moveTo(cx, cy);
+    wheelCtx.arc(cx, cy, r, start, end);
+    wheelCtx.closePath();
+    wheelCtx.fillStyle = seg.color;
+    wheelCtx.fill();
+    wheelCtx.strokeStyle = '#fff';
+    wheelCtx.lineWidth = 2;
+    wheelCtx.stroke();
+
+    // Label — placed at 62% of radius, perpendicular to spoke
+    var mid = start + arc / 2;
+    var textR = r * 0.62;
+    var tx = cx + Math.cos(mid) * textR;
+    var ty = cy + Math.sin(mid) * textR;
+
+    wheelCtx.save();
+    wheelCtx.translate(tx, ty);
+    // Rotate so text runs along the arc (perpendicular to radius)
+    wheelCtx.rotate(mid + Math.PI / 2);
+    wheelCtx.textAlign = 'center';
+    wheelCtx.textBaseline = 'middle';
+    wheelCtx.fillStyle = '#fff';
+    wheelCtx.font = 'bold 11px Arial, Helvetica, sans-serif';
+    wheelCtx.shadowColor = 'rgba(0,0,0,0.4)';
+    wheelCtx.shadowBlur = 3;
+
+    var text = seg.name;
+    // Estimate max chars per line based on available arc width
+    var arcWidth = 2 * textR * Math.sin(arc / 2) - 12;
+    if (wheelCtx.measureText(text).width > arcWidth) {
+      var words = text.split(' ');
+      var split = Math.ceil(words.length / 2);
+      var line1 = words.slice(0, split).join(' ');
+      var line2 = words.slice(split).join(' ');
+      wheelCtx.fillText(line1, 0, -7);
+      wheelCtx.fillText(line2, 0, 7);
+    } else {
+      wheelCtx.fillText(text, 0, 0);
+    }
+    wheelCtx.restore();
+  });
+
+  // Center circle
+  wheelCtx.beginPath();
+  wheelCtx.arc(cx, cy, 22, 0, 2 * Math.PI);
+  wheelCtx.fillStyle = '#fff';
+  wheelCtx.fill();
+  wheelCtx.strokeStyle = '#e0e0e0';
+  wheelCtx.lineWidth = 2;
+  wheelCtx.stroke();
+
+  wheelCtx.beginPath();
+  wheelCtx.arc(cx, cy, 8, 0, 2 * Math.PI);
+  wheelCtx.fillStyle = '#000';
+  wheelCtx.fill();
+
+  // Pointer (top)
+  wheelCtx.beginPath();
+  wheelCtx.moveTo(cx, 4);
+  wheelCtx.lineTo(cx - 8, 20);
+  wheelCtx.lineTo(cx + 8, 20);
+  wheelCtx.closePath();
+  wheelCtx.fillStyle = '#000';
+  wheelCtx.fill();
+}
+
+function getWinningSegment(finalAngle) {
+  var n = wheelSegments.length;
+  var arc = (2 * Math.PI) / n;
+  // Segments are drawn starting at -PI/2 (top), so negate the rotation and normalize
+  var normalized = ((-finalAngle % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI);
+  var index = Math.floor(normalized / arc) % n;
+  return wheelSegments[index];
+}
+
+function spinWheel() {
+  if (state.isSpinning) return;
+  if (!state.name) { showNamePicker(); return; }
+  if (state.hasSpunToday) {
+    showToast('You have already spun today!');
+    return;
+  }
+
+  state.isSpinning = true;
+  document.getElementById('spin-btn').disabled = true;
+  document.getElementById('spin-result').classList.remove('show');
+
+  var extraSpins = 5 + Math.random() * 5; // 5-10 full spins
+  var stopAngle = Math.random() * 2 * Math.PI;
+  var totalRotation = extraSpins * 2 * Math.PI + stopAngle;
+  var duration = 4000;
+  var startAngle = wheelCurrentAngle;
+  var startTime = null;
+
+  function easeOut(t) {
+    return 1 - Math.pow(1 - t, 3);
+  }
+
+  function animate(ts) {
+    if (!startTime) startTime = ts;
+    var elapsed = ts - startTime;
+    var progress = Math.min(elapsed / duration, 1);
+    var angle = startAngle + totalRotation * easeOut(progress);
+    wheelCurrentAngle = angle;
+    drawWheel(angle);
+
+    if (progress < 1) {
+      requestAnimationFrame(animate);
+    } else {
+      // Determine winner
+      var winner = getWinningSegment(angle);
+      state.isSpinning = false;
+      showSpinResult(winner);
+    }
+  }
+
+  requestAnimationFrame(animate);
+}
+
+function showSpinResult(segment) {
+  // Save to server
+  api('submitSpin', {
+    spin: {
+      name: state.name,
+      segmentName: segment.name,
+      points: segment.points
+    }
+  }).then(function(res) {
+    if (res.success) {
+      state.hasSpunToday = true;
+      document.getElementById('spin-btn').disabled = true;
+      document.getElementById('spin-hint').textContent = 'You have already spun today. Come back on the next spin day!';
+
+      var resultEl = document.getElementById('spin-result');
+      document.getElementById('spin-result-name').textContent = segment.name;
+      document.getElementById('spin-result-pts').textContent = '+' + segment.points + ' pts';
+      resultEl.classList.add('show');
+      showToast('You got: ' + segment.name + ' (+' + segment.points + ' pts)');
+      refreshHomeStats();
+      if (state.currentTab === 'mine') loadMine();
+      if (state.currentTab === 'board') loadLeaderboard();
+    } else {
+      showToast(res.error || 'Could not save spin. Try again.');
+      document.getElementById('spin-btn').disabled = false;
+    }
+  }).catch(function() {
+    showToast('Connection error. Try again.');
+    document.getElementById('spin-btn').disabled = false;
+  });
+}
+
+function renderSegList(segments, spinDays) {
+  var container = document.getElementById('seg-list');
+  container.innerHTML = '<div class="seg-header">This week\'s wheel</div>';
+  segments.forEach(function(seg) {
+    var row = document.createElement('div');
+    row.className = 'seg-row';
+    row.innerHTML = '<span class="seg-dot" style="background:' + seg.color + '"></span>' +
+      '<span>' + seg.name + '</span>' +
+      '<span class="seg-pts">' + seg.points + ' pts</span>';
+    container.appendChild(row);
+  });
+}
+
+function updateWheelAvailability(spinDays) {
+  var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  var today = days[new Date().getDay()];
+  var isSpinDay = spinDays.some(function(d) { return d.trim().toLowerCase() === today.toLowerCase(); });
+
+  var label = document.getElementById('spin-days-label');
+  label.textContent = 'Spin days this week: ' + spinDays.join(', ');
+
+  var notToday = document.getElementById('wheel-not-today');
+  var spinBtn = document.getElementById('spin-btn');
+  var canvas = document.getElementById('wheel-canvas');
+
+  if (!isSpinDay) {
+    var nextDay = '';
+    var dayIdx = days.indexOf(today);
+    for (var i = 1; i <= 7; i++) {
+      var checkDay = days[(dayIdx + i) % 7];
+      if (spinDays.some(function(d) { return d.trim().toLowerCase() === checkDay.toLowerCase(); })) {
+        nextDay = checkDay;
+        break;
+      }
+    }
+    document.getElementById('wheel-not-today-msg').textContent = 'No spin today. Next spin day: ' + nextDay + '.';
+    notToday.style.display = 'block';
+    spinBtn.disabled = true;
+    canvas.style.opacity = '0.4';
+  }
+}
+
+function updateWheelScreen() {
+  if (state.hasSpunToday) {
+    var btn = document.getElementById('spin-btn');
+    if (btn) {
+      btn.disabled = true;
+      document.getElementById('spin-hint').textContent = 'You have already spun today. Come back on the next spin day!';
+    }
+  }
+}
+
+function applyWheelVisibility(visible) {
+  var wheelTab = document.querySelector('[data-tab="wheel"]');
+  var wheelScreen = document.getElementById('screen-wheel');
+  var homeWheelBtn = document.querySelector('.btn-outline[onclick*="wheel"]');
+  if (wheelTab) wheelTab.style.display = visible ? '' : 'none';
+  if (wheelScreen) wheelScreen.style.display = visible ? '' : 'none';
+  if (homeWheelBtn) homeWheelBtn.style.display = visible ? '' : 'none';
+  // Redistribute tab columns if wheel hidden
+  var tabbar = document.querySelector('.tabbar');
+  if (tabbar) {
+    var visibleTabs = tabbar.querySelectorAll('.tab:not([style*="display: none"])').length;
+    tabbar.style.gridTemplateColumns = 'repeat(' + visibleTabs + ', 1fr)';
+  }
+}
+
+// ============================================================
+// LEADERBOARD
+// ============================================================
+
+function loadLeaderboard() {
+  var container = document.getElementById('leaderboard-content');
+  container.innerHTML = '<div class="loading"><div class="spinner"></div> Loading...</div>';
+
+  api('getLeaderboard').then(function(res) {
+    state.leaderboard = res.leaderboard;
+    renderLeaderboard(res.leaderboard);
+  }).catch(function() {
+    container.innerHTML = '<div class="empty">Could not load leaderboard. Check your connection.</div>';
+  });
+}
+
+function renderLeaderboard(board) {
+  var container = document.getElementById('leaderboard-content');
+  if (!board || !board.length) {
+    container.innerHTML = '<div class="empty">No entries yet. Be the first to log!</div>';
+    return;
+  }
+
+  var html = '<div class="lb-header"><span></span><span>Name</span><span style="text-align:right">Points</span><span style="text-align:right">Entries</span></div>';
+
+  board.forEach(function(row) {
+    var isMe = row.name === state.name;
+    var medal = row.rank === 1 ? '🥇' : row.rank === 2 ? '🥈' : row.rank === 3 ? '🥉' : '';
+    var rankHtml = medal
+      ? '<span class="lb-rank medal">' + medal + '</span>'
+      : '<span class="lb-rank">' + row.rank + '</span>';
+    var meTag = isMe ? ' (you)' : '';
+    html += '<div class="lb-row' + (isMe ? ' me' : '') + '">' +
+      rankHtml +
+      '<span class="lb-name">' + row.name + meTag + '</span>' +
+      '<span class="lb-pts">' + row.points + '</span>' +
+      '<span class="lb-entries">' + row.drawEntries + '</span>' +
+      '</div>';
+  });
+
+  container.innerHTML = html;
+}
+
+// ============================================================
+// MY SUBMISSIONS
+// ============================================================
+
+function loadMine() {
+  var container = document.getElementById('mine-content');
+  var nameDisplay = document.getElementById('mine-name-display');
+
+  if (!state.name) {
+    nameDisplay.textContent = 'Select your name';
+    container.innerHTML = '<div class="empty">Pick your name above to see your activity.</div>';
+    return;
+  }
+
+  nameDisplay.textContent = state.name;
+  container.innerHTML = '<div class="loading"><div class="spinner"></div> Loading your activity...</div>';
+
+  api('getMySubmissions', { name: state.name }).then(function(res) {
+    renderMine(res);
+  }).catch(function() {
+    container.innerHTML = '<div class="empty">Could not load your activity. Check your connection.</div>';
+  });
+}
+
+function renderMine(res) {
+  var container = document.getElementById('mine-content');
+
+  // Stats
+  var html = '<div class="card" style="margin-top:10px;">' +
+    '<div style="display:grid;grid-template-columns:1fr 1fr;gap:0;">' +
+    '<div style="padding:14px 16px;border-right:1px solid var(--gray-border);">' +
+      '<div style="font-size:11px;color:var(--gray-text);">Total points</div>' +
+      '<div style="font-size:24px;font-weight:700;color:var(--ice);">' + res.totalPoints + '</div>' +
+    '</div>' +
+    '<div style="padding:14px 16px;">' +
+      '<div style="font-size:11px;color:var(--gray-text);">Draw entries</div>' +
+      '<div style="font-size:24px;font-weight:700;">' + res.drawEntries + '</div>' +
+    '</div>' +
+    '</div></div>';
+
+  // Check prize level
+  var level = '';
+  if (res.totalPoints >= 420) level = 'Level 3 — eligible for $1,000 prize draw!';
+  else if (res.totalPoints >= 300) level = 'Level 2 — eligible for $250 prize draw!';
+  else if (res.totalPoints >= 120) level = 'Level 1 — eligible for $100 prize draw!';
+  else level = (120 - res.totalPoints) + ' more points to reach Level 1 ($100 prize)';
+
+  html += '<div class="notice notice-info">' + level + '</div>';
+
+  // Entries
+  if (!res.entries.length && !res.spins.length) {
+    html += '<div class="empty">No activity logged yet. Head to the Log tab to get started!</div>';
+  } else {
+    // Merge and sort by date
+    var allActivity = [];
+    res.entries.forEach(function(e) {
+      allActivity.push({ date: e.date, type: 'log', data: e });
+    });
+    res.spins.forEach(function(s) {
+      allActivity.push({ date: s.date, type: 'spin', data: s });
+    });
+    allActivity.sort(function(a, b) { return b.date.localeCompare(a.date); });
+
+    html += '<div class="card" style="margin-bottom:12px;">';
+    html += '<div style="padding:10px 14px 6px;font-size:11px;color:var(--gray-text);">Recent activity</div>';
+
+    allActivity.forEach(function(item) {
+      var dateLabel = formatDate(item.date);
+      if (item.type === 'log') {
+        var e = item.data;
+        var details = [];
+        if (e.classAttended === 'Yes') details.push('Class');
+        if (e.stepsOption && e.stepsOption !== 'none') details.push('Steps ' + e.stepsOption);
+        if (e.challengeName && e.challengeName !== 'N/A') details.push(e.challengeName);
+        html += '<div class="sub-row">' +
+          '<div>' +
+          '<div class="sub-date">' + dateLabel + '</div>' +
+          '<div class="sub-detail">' + (details.join(' · ') || 'No class, no steps') + '</div>' +
+          '</div>' +
+          '<div class="sub-pts">+' + e.totalPoints + '</div>' +
+          '</div>';
+      } else {
+        var s = item.data;
+        html += '<div class="sub-row">' +
+          '<div>' +
+          '<div class="sub-date">' + dateLabel + ' (wheel spin)</div>' +
+          '<div class="sub-detail">' + s.segmentName + '</div>' +
+          '</div>' +
+          '<div class="sub-pts">+' + s.points + '</div>' +
+          '</div>';
+      }
+    });
+
+    html += '</div>';
+  }
+
+  container.innerHTML = html;
+}
+
+// ============================================================
+// TOAST
+// ============================================================
+
+var toastTimer;
+function showToast(msg) {
+  var el = document.getElementById('toast');
+  el.textContent = msg;
+  el.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(function() { el.classList.remove('show'); }, 3000);
+}
+
+// ============================================================
+// HELPERS
+// ============================================================
+
+function formatDate(dateStr) {
+  if (!dateStr) return '';
+  var d = new Date(dateStr + 'T00:00:00');
+  return d.toLocaleDateString('en-AU', { weekday: 'short', day: 'numeric', month: 'short' });
+}
+
+// Init points preview
+updatePointsPreview();
+
+// JS height fix — only runs if 100dvh is not supported (very old browsers)
+(function() {
+  if (CSS.supports('height', '1dvh')) return;
+  var app = document.getElementById('app');
+  function sizeApp() {
+    var h = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+    app.style.height = h + 'px';
+  }
+  sizeApp();
+  (window.visualViewport || window).addEventListener('resize', sizeApp);
+})();
+
+</script>
+
+</body>
+</html>
