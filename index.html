@@ -817,8 +817,6 @@
 // CONFIG
 // ============================================================
 
-// Uses google.script.run to call server functions directly
-
 // ============================================================
 // STATE
 // ============================================================
@@ -842,26 +840,6 @@ var selections = {
 };
 
 var weekStatus = { submittedDates: [], spunDates: [] };
-
-// ============================================================
-// API
-// ============================================================
-
-function api(action, extra) {
-  return new Promise(function(resolve, reject) {
-    var runner = google.script.run
-      .withSuccessHandler(resolve)
-      .withFailureHandler(function(err) { reject(new Error(err.message || err)); });
-
-    if (action === 'getConfig')          runner.getConfig();
-    else if (action === 'getLeaderboard')     runner.getLeaderboard();
-    else if (action === 'getMySubmissions')   runner.getMySubmissions(extra.name);
-    else if (action === 'submitEntry')        runner.submitEntry(extra.entry);
-    else if (action === 'submitSpin')         runner.submitSpin(extra.spin);
-    else if (action === 'checkTodayStatus')   runner.checkTodayStatus(extra.name);
-    else if (action === 'getWeekStatus')      runner.getWeekStatus(extra.name);
-  });
-}
 
 // ============================================================
 // INIT
