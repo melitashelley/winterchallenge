@@ -814,8 +814,21 @@
 
 <script>
 // ============================================================
-// CONFIG
+// API — fetch-based, calls Apps Script backend
 // ============================================================
+
+var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz5MiBgM6A6qlY9nJUvGszmtxulfdSmHHZ_WlxceYyWqh5kBOq-ifzOsxRWAOqce-6L/exec';
+
+function api(action, extra) {
+  var payload = Object.assign({ action: action }, extra || {});
+  return fetch(SCRIPT_URL, {
+    method: 'POST',
+    body: JSON.stringify(payload)
+  }).then(function(r) {
+    if (!r.ok) throw new Error('Network error ' + r.status);
+    return r.json();
+  });
+}
 
 // ============================================================
 // STATE
