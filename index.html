@@ -1369,7 +1369,7 @@ function showSpinResult(segment) {
 
 function renderSegList(segments, spinDays) {
   var container = document.getElementById('seg-list');
-  container.innerHTML = '<div class="seg-header">This week\'s wheel</div>';
+  if (!container) return;
   segments.forEach(function(seg) {
     var row = document.createElement('div');
     row.className = 'seg-row';
@@ -1386,7 +1386,7 @@ function updateWheelAvailability(spinDays) {
   var isSpinDay = spinDays.some(function(d) { return d.trim().toLowerCase() === today.toLowerCase(); });
 
   var label = document.getElementById('spin-days-label');
-  label.textContent = 'Spin days this week: ' + spinDays.join(', ');
+  if (!label) return;
 
   var notToday = document.getElementById('wheel-not-today');
   var spinBtn = document.getElementById('spin-btn');
