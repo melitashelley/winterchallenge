@@ -227,6 +227,7 @@
     line-height: 1.5;
   }
   .notice-info { background: var(--ice-light); color: var(--ice-dark); }
+  .prize-progress { padding: 8px 14px; border-bottom: 1px solid var(--gray-border); font-size: 12px; color: var(--gray-text); }
   .notice-success { background: #e8f5e9; color: #1b5e20; }
   .notice-warn { background: #fff8e1; color: #6d4c00; }
   .notice-error { background: #fdecea; color: #8b1a1a; }
@@ -935,7 +936,7 @@ function refreshHomeStats() {
       else if (pts >= 300) prizeMsg = 'Level 2 — eligible for $250 prize draw!';
       else if (pts >= 120) prizeMsg = 'Level 1 — eligible for $100 prize draw!';
       else prizeMsg = (120 - pts) + ' more points to reach Level 1 ($100 prize)';
-      prizeEl.innerHTML = '<div class="notice notice-info">' + prizeMsg + '</div>';
+      prizeEl.innerHTML = '<div class="prize-progress">' + prizeMsg + '</div>';
     }
 
     // Get rank from leaderboard
@@ -1620,7 +1621,7 @@ function renderMine(res) {
   else if (res.totalPoints >= 120) level = 'Level 1 — eligible for $100 prize draw!';
   else level = (120 - res.totalPoints) + ' more points to reach Level 1 ($100 prize)';
 
-  html += '<div class="notice notice-info">' + level + '</div>';
+  html += '<div class="prize-progress">' + level + '</div>';
 
   // Entries
   if (!res.entries.length && !res.spins.length) {
