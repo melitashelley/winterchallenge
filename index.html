@@ -539,7 +539,6 @@
       <div class="hero">
         <div class="hero-content">
           <h1>Winter<br>Series <span>2026</span></h1>
-          <p class="hero-sub">Stay consistent. Earn points. Win big.</p>
           <div class="hero-stats">
             <div class="hero-stat">
               <div class="hero-stat-label">Your points</div>
@@ -558,6 +557,7 @@
       </div>
 
       <div id="home-notice"></div>
+      <div id="home-prize-progress" style="margin:0 12px;"></div>
 
       <div class="home-ctas">
         <button class="btn-primary" onclick="goTab('log')">Log today's activity</button>
@@ -793,7 +793,7 @@
           <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/>
         </svg>
       </div>
-      <span class="tab-label">Mine</span>
+      <span class="tab-label">Me</span>
     </button>
   </div>
 </div>
@@ -929,8 +929,20 @@ function refreshHomeStats() {
   if (!state.name) return;
   api('getMySubmissions', { name: state.name }).then(function(res) {
     if (!res) return;
-    document.getElementById('home-points').textContent = res.totalPoints || 0;
+    var pts = res.totalPoints || 0;
+    document.getElementById('home-points').textContent = pts;
     document.getElementById('home-entries').textContent = res.drawEntries || 0;
+
+    // Prize progress
+    var prizeEl = document.getElementById('home-prize-progress');
+    if (prizeEl) {
+      var prizeMsg = '';
+      if (pts >= 420) prizeMsg = 'Level 3 — eligible for $1,000 prize draw!';
+      else if (pts >= 300) prizeMsg = 'Level 2 — eligible for $250 prize draw!';
+      else if (pts >= 120) prizeMsg = 'Level 1 — eligible for $100 prize draw!';
+      else prizeMsg = (120 - pts) + ' more points to reach Level 1 ($100 prize)';
+      prizeEl.innerHTML = '<div class="notice notice-info">' + prizeMsg + '</div>';
+    }
 
     // Get rank from leaderboard
     api('getLeaderboard').then(function(lb) {
