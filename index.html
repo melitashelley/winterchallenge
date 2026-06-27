@@ -617,12 +617,7 @@
             <div class="section-title">Did you do a class today?</div>
             <p class="section-sub">This will be matched with your check-ins at the gym.</p>
             <div class="options" id="class-options">
-              <div class="option selected" data-val="na" data-pts="0" onclick="selectOption('class', this)">
-                <div class="option-radio"></div>
-                <span>N/A</span>
-                <span class="option-pts"></span>
-              </div>
-              <div class="option" data-val="yes" data-pts="3" onclick="selectOption('class', this)">
+              <div class="option selected" data-val="yes" data-pts="3" onclick="selectOption('class', this)">
                 <div class="option-radio"></div>
                 <span>Yes</span>
                 <span class="option-pts">3 pts</span>
@@ -640,11 +635,6 @@
           <div class="card-section">
             <div class="section-title">Steps</div>
             <div class="options" id="steps-options">
-              <div class="option selected" data-val="none" data-pts="0" onclick="selectOption('steps', this)">
-                <div class="option-radio"></div>
-                <span>N/A</span>
-                <span class="option-pts"></span>
-              </div>
               <div class="option" data-val="8000" data-pts="2" onclick="selectOption('steps', this)">
                 <div class="option-radio"></div>
                 <span>More than 8,000 steps</span>
@@ -654,6 +644,11 @@
                 <div class="option-radio"></div>
                 <span>More than 12,000 steps</span>
                 <span class="option-pts">3 pts</span>
+              </div>
+              <div class="option selected" data-val="none" data-pts="0" onclick="selectOption('steps', this)">
+                <div class="option-radio"></div>
+                <span>I didn't get there today</span>
+                <span class="option-pts">0 pts</span>
               </div>
             </div>
           </div>
@@ -848,7 +843,7 @@ var state = {
 };
 
 var selections = {
-  class: { val: 'na', pts: 0 },
+  class: { val: 'yes', pts: 3 },
   steps: { val: 'none', pts: 0 },
   challenge: { val: 'NA', pts: 0, name: 'N/A' }
 };
