@@ -538,12 +538,18 @@
 
       <div id="home-notice"></div>
       <div id="home-prize-progress"></div>
+      <div id="home-spin-banner" style="display:none;padding:0 12px 8px;">
+        <div style="background:var(--ice-light);border-radius:12px;padding:12px 14px;display:flex;align-items:center;justify-content:space-between;gap:10px;">
+          <div>
+            <div style="font-size:13px;font-weight:600;color:var(--ice-dark);" id="home-spin-banner-title">Today is a spin day!</div>
+            <div style="font-size:11px;color:var(--ice);margin-top:2px;" id="home-spin-banner-sub">Log your spin result</div>
+          </div>
+          <button id="home-spin-btn" onclick="openSpinModal()" style="background:var(--ice-dark);color:#fff;border:none;border-radius:8px;padding:8px 14px;font-size:12px;font-weight:600;white-space:nowrap;cursor:pointer;">Spin result</button>
+        </div>
+      </div>
 
       <div class="home-ctas">
         <button class="btn-primary" onclick="goTab('log')">Log Activity</button>
-        <!-- Wheel button hidden until re-enabled
-        <button class="btn-outline" onclick="goTab('wheel')">Spin the wheel</button>
-        -->
       </div>
 
       <div class="card">
@@ -659,16 +665,6 @@
             <p class="section-sub">Max one per day. Tell a coach before you start.</p>
             <div id="challenge-options" class="options">
               <div class="loading"><div class="spinner"></div> Loading challenges...</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-section">
-            <div class="section-title">Did you spin the wheel?</div>
-            <p class="section-sub">Only on designated spin days.</p>
-            <div id="spin-options" class="options">
-              <div class="loading"><div class="spinner"></div> Loading...</div>
             </div>
           </div>
         </div>
@@ -805,6 +801,19 @@
   </div>
 </div>
 
+<!-- SPIN MODAL OVERLAY -->
+<div id="spin-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:300;display:none;align-items:flex-end;justify-content:center;">
+  <div style="background:#fff;border-radius:20px 20px 0 0;width:100%;max-width:480px;padding:20px 16px 32px;">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;">
+      <div style="font-size:16px;font-weight:700;">What did you spin?</div>
+      <button onclick="closeSpinModal()" style="background:none;border:none;font-size:22px;color:#888;cursor:pointer;line-height:1;">×</button>
+    </div>
+    <p style="font-size:12px;color:#888;margin-bottom:14px;">Select the result from the wheel.</p>
+    <div id="spin-modal-options" class="options" style="margin-bottom:14px;"></div>
+    <button class="btn-primary" id="spin-modal-submit" onclick="submitSpin()">Confirm spin</button>
+  </div>
+</div>
+
 <div id="toast"></div>
 
 <script>
@@ -834,19 +843,17 @@ var state = {
   config: null,
   leaderboard: null,
   currentTab: 'home',
-  spinResult: null,
-  hasSubmittedToday: false,
-  hasSpunToday: false,
-  wheelAngle: 0,
-  isSpinning: false
+  hasLoggedActivityToday: false,
+  hasLoggedSpinToday: false
 };
 
 var selections = {
   class: { val: 'na', pts: 0 },
   steps: { val: 'none', pts: 0 },
-  challenge: { val: 'NA', pts: 0, name: 'N/A' },
-  spin: { val: 'NA', pts: 0, name: 'N/A' }
+  challenge: { val: 'NA', pts: 0, name: 'N/A' }
 };
+
+var spinSelection = { val: null, pts: 0, name: '' };
 
 var weekStatus = { submittedDates: [], spunDates: [] };
 
@@ -870,12 +877,7 @@ function loadConfig() {
     state.config = cfg;
     populateNameDropdown(cfg.members);
     renderChallenges(cfg.challenges);
-    renderSpinOptions(cfg.segments);
-    renderWheel(cfg.segments);
-    renderSegList(cfg.segments, cfg.spinDays);
-    updateWheelAvailability(cfg.spinDays);
-    // Show/hide wheel tab based on config
-    applyWheelVisibility(cfg.wheelVisible !== false);
+    renderSpinModalOptions(cfg.segments);
   }).catch(function(err) {
     console.error('Config load error:', err);
   });
@@ -884,11 +886,11 @@ function loadConfig() {
 function checkTodayStatus() {
   if (!state.name) return;
   api('checkTodayStatus', { name: state.name }).then(function(res) {
-    state.hasSubmittedToday = res.hasSubmitted;
-    state.hasSpunToday = res.hasSpun;
+    state.hasLoggedActivityToday = res.loggedActivity;
+    state.hasLoggedSpinToday = res.loggedSpin;
     updateLogScreen();
-    updateWheelScreen();
     updateHomeNotice();
+    updateSpinBanner();
   });
 }
 
@@ -952,14 +954,29 @@ function refreshHomeStats() {
 
 function updateHomeNotice() {
   var el = document.getElementById('home-notice');
-  if (!state.name) {
-    el.innerHTML = '';
-    return;
-  }
-  if (state.hasSubmittedToday) {
-    el.innerHTML = '<div class="notice notice-success">Today\'s activity logged. Well done!</div>';
+  if (!state.name) { el.innerHTML = ''; return; }
+  el.innerHTML = state.hasLoggedActivityToday
+    ? '<div class="notice notice-success">Today\'s activity logged. Well done!</div>'
+    : '';
+}
+
+function updateSpinBanner() {
+  var banner = document.getElementById('home-spin-banner');
+  if (!banner) return;
+  var cfg = state.config;
+  if (!cfg || !cfg.spinDayActive) { banner.style.display = 'none'; return; }
+  banner.style.display = 'block';
+  var title = document.getElementById('home-spin-banner-title');
+  var sub = document.getElementById('home-spin-banner-sub');
+  var btn = document.getElementById('home-spin-btn');
+  if (state.hasLoggedSpinToday) {
+    title.textContent = 'Spin logged ✓';
+    sub.textContent = 'Nice one!';
+    btn.style.display = 'none';
   } else {
-    el.innerHTML = '';
+    title.textContent = 'Today is a spin day!';
+    sub.textContent = 'Log your spin result';
+    btn.style.display = '';
   }
 }
 
@@ -1123,29 +1140,77 @@ function renderChallenges(challenges) {
   });
 }
 
-function renderSpinOptions(segments) {
-  var container = document.getElementById('spin-options');
+function renderSpinModalOptions(segments) {
+  var container = document.getElementById('spin-modal-options');
   if (!container) return;
   container.innerHTML = '';
-
-  var naDiv = document.createElement('div');
-  naDiv.className = 'option selected';
-  naDiv.setAttribute('data-val', 'NA');
-  naDiv.setAttribute('data-pts', '0');
-  naDiv.setAttribute('data-name', 'N/A');
-  naDiv.setAttribute('onclick', 'selectOption("spin", this)');
-  naDiv.innerHTML = '<div class="option-radio"></div><span>No / not a spin day</span><span class="option-pts"></span>';
-  container.appendChild(naDiv);
-
+  spinSelection = { val: null, pts: 0, name: '' };
   segments.forEach(function(seg) {
     var div = document.createElement('div');
     div.className = 'option';
     div.setAttribute('data-val', seg.name);
     div.setAttribute('data-pts', seg.points);
-    div.setAttribute('data-name', seg.name);
-    div.setAttribute('onclick', 'selectOption("spin", this)');
-    div.innerHTML = '<div class="option-radio"></div><span>' + seg.name + '</span><span class="option-pts">' + seg.points + ' pts</span>';
+    div.setAttribute('onclick', 'selectSpinOption(this)');
+    div.innerHTML = '<div class="option-radio"></div><span>' + seg.name + '</span><span class="option-pts">' + (seg.points > 0 ? seg.points + ' pts' : '') + '</span>';
     container.appendChild(div);
+  });
+}
+
+function selectSpinOption(el) {
+  document.querySelectorAll('#spin-modal-options .option').forEach(function(o) { o.classList.remove('selected'); });
+  el.classList.add('selected');
+  spinSelection = {
+    val: el.getAttribute('data-val'),
+    pts: parseInt(el.getAttribute('data-pts')) || 0,
+    name: el.getAttribute('data-val')
+  };
+}
+
+function openSpinModal() {
+  var overlay = document.getElementById('spin-overlay');
+  overlay.style.display = 'flex';
+  // Reset selection
+  document.querySelectorAll('#spin-modal-options .option').forEach(function(o) { o.classList.remove('selected'); });
+  spinSelection = { val: null, pts: 0, name: '' };
+}
+
+function closeSpinModal() {
+  document.getElementById('spin-overlay').style.display = 'none';
+}
+
+function submitSpin() {
+  if (!spinSelection.val) { showToast('Please select your spin result'); return; }
+  if (!state.name) { closeSpinModal(); showNamePicker(); return; }
+
+  var btn = document.getElementById('spin-modal-submit');
+  btn.textContent = 'Submitting...';
+  btn.disabled = true;
+
+  var entry = {
+    name: state.name,
+    date: getTodayLocal(),
+    entryType: 'spin',
+    spinResult: spinSelection.name,
+    spinPoints: spinSelection.pts
+  };
+
+  api('submitEntry', { entry: entry }).then(function(res) {
+    btn.textContent = 'Confirm spin';
+    btn.disabled = false;
+    if (res && res.success) {
+      state.hasLoggedSpinToday = true;
+      closeSpinModal();
+      updateSpinBanner();
+      updateHomeNotice();
+      refreshHomeStats();
+      showToast('Spin logged! ' + (res.totalPoints > 0 ? '+' + res.totalPoints + ' pts' : ''));
+    } else {
+      showToast((res && res.error) || 'Something went wrong. Try again.');
+    }
+  }).catch(function() {
+    btn.textContent = 'Confirm spin';
+    btn.disabled = false;
+    showToast('Could not connect. Check your connection and try again.');
   });
 }
 
@@ -1162,7 +1227,7 @@ function selectOption(group, el) {
 }
 
 function updatePointsPreview() {
-  var total = (selections.class.pts || 0) + (selections.steps.pts || 0) + (selections.challenge.pts || 0) + (selections.spin.pts || 0);
+  var total = (selections.class.pts || 0) + (selections.steps.pts || 0) + (selections.challenge.pts || 0);
   var btn = document.getElementById('log-submit-btn');
   var preview = document.getElementById('log-points-preview');
   btn.textContent = total > 0 ? 'Submit, earn ' + total + ' pts today' : 'Submit';
@@ -1179,14 +1244,13 @@ function submitLog() {
   var entry = {
     name: state.name,
     date: state.selectedDate || getTodayLocal(),
+    entryType: 'activity',
     classAttended: selections.class.val === 'yes',
     classPoints: selections.class.pts,
     stepsOption: selections.steps.val,
     stepsPoints: selections.steps.pts,
     challengeName: selections.challenge.name,
     challengePoints: selections.challenge.pts,
-    spinResult: selections.spin.name,
-    spinPoints: selections.spin.pts,
     comments: document.getElementById('log-comments').value
   };
 
@@ -1205,7 +1269,7 @@ function submitLog() {
   api('submitEntry', { entry: entry }).then(function(res) {
     clearTimeout(giveUp);
     if (res && res.success) {
-      state.hasSubmittedToday = true;
+      state.hasLoggedActivityToday = true;
       if (res.date) weekStatus.submittedDates.push(res.date);
       renderWeekDayPicker();
       updateLogScreen();
@@ -1331,7 +1395,7 @@ function getWinningSegment(finalAngle) {
 function spinWheel() {
   if (state.isSpinning) return;
   if (!state.name) { showNamePicker(); return; }
-  if (state.hasSpunToday) {
+  if (state.hasLoggedSpinToday) {
     showToast('You have already spun today!');
     return;
   }
@@ -1382,7 +1446,7 @@ function showSpinResult(segment) {
     }
   }).then(function(res) {
     if (res.success) {
-      state.hasSpunToday = true;
+      state.hasLoggedSpinToday = true;
       document.getElementById('spin-btn').disabled = true;
       document.getElementById('spin-hint').textContent = 'You have already spun today. Come back on the next spin day!';
 
@@ -1447,7 +1511,7 @@ function updateWheelAvailability(spinDays) {
 }
 
 function updateWheelScreen() {
-  if (state.hasSpunToday) {
+  if (state.hasLoggedSpinToday) {
     var btn = document.getElementById('spin-btn');
     if (btn) {
       btn.disabled = true;
