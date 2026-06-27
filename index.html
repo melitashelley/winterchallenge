@@ -540,7 +540,7 @@
       <div id="home-prize-progress"></div>
 
       <div class="home-ctas">
-        <button class="btn-primary" onclick="goTab('log')">Log today's activity</button>
+        <button class="btn-primary" onclick="goTab('log')">Log Activity</button>
         <!-- Wheel button hidden until re-enabled
         <button class="btn-outline" onclick="goTab('wheel')">Spin the wheel</button>
         -->
@@ -939,10 +939,10 @@ function updateHomeNotice() {
     el.innerHTML = '';
     return;
   }
-  if (!state.hasSubmittedToday) {
-    el.innerHTML = '<div class="notice notice-info">You have not logged today yet. Tap Log to earn your points!</div>';
-  } else {
+  if (state.hasSubmittedToday) {
     el.innerHTML = '<div class="notice notice-success">Today\'s activity logged. Well done!</div>';
+  } else {
+    el.innerHTML = '';
   }
 }
 
