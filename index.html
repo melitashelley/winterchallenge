@@ -611,7 +611,12 @@
             <div class="section-title">Did you do a class today?</div>
             <p class="section-sub">This will be matched with your check-ins at the gym.</p>
             <div class="options" id="class-options">
-              <div class="option selected" data-val="yes" data-pts="3" onclick="selectOption('class', this)">
+              <div class="option selected" data-val="na" data-pts="0" onclick="selectOption('class', this)">
+                <div class="option-radio"></div>
+                <span>N/A</span>
+                <span class="option-pts"></span>
+              </div>
+              <div class="option" data-val="yes" data-pts="3" onclick="selectOption('class', this)">
                 <div class="option-radio"></div>
                 <span>Yes</span>
                 <span class="option-pts">3 pts</span>
@@ -629,6 +634,11 @@
           <div class="card-section">
             <div class="section-title">Steps</div>
             <div class="options" id="steps-options">
+              <div class="option selected" data-val="none" data-pts="0" onclick="selectOption('steps', this)">
+                <div class="option-radio"></div>
+                <span>N/A</span>
+                <span class="option-pts"></span>
+              </div>
               <div class="option" data-val="8000" data-pts="2" onclick="selectOption('steps', this)">
                 <div class="option-radio"></div>
                 <span>More than 8,000 steps</span>
@@ -638,11 +648,6 @@
                 <div class="option-radio"></div>
                 <span>More than 12,000 steps</span>
                 <span class="option-pts">3 pts</span>
-              </div>
-              <div class="option selected" data-val="none" data-pts="0" onclick="selectOption('steps', this)">
-                <div class="option-radio"></div>
-                <span>Did not reach today</span>
-                <span class="option-pts">0 pts</span>
               </div>
             </div>
           </div>
@@ -654,6 +659,16 @@
             <p class="section-sub">Max one per day. Tell a coach before you start.</p>
             <div id="challenge-options" class="options">
               <div class="loading"><div class="spinner"></div> Loading challenges...</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-section">
+            <div class="section-title">Did you spin the wheel?</div>
+            <p class="section-sub">Only on designated spin days.</p>
+            <div id="spin-options" class="options">
+              <div class="loading"><div class="spinner"></div> Loading...</div>
             </div>
           </div>
         </div>
@@ -827,9 +842,10 @@ var state = {
 };
 
 var selections = {
-  class: { val: 'yes', pts: 3 },
+  class: { val: 'na', pts: 0 },
   steps: { val: 'none', pts: 0 },
-  challenge: { val: 'NA', pts: 0, name: 'N/A' }
+  challenge: { val: 'NA', pts: 0, name: 'N/A' },
+  spin: { val: 'NA', pts: 0, name: 'N/A' }
 };
 
 var weekStatus = { submittedDates: [], spunDates: [] };
@@ -854,6 +870,7 @@ function loadConfig() {
     state.config = cfg;
     populateNameDropdown(cfg.members);
     renderChallenges(cfg.challenges);
+    renderSpinOptions(cfg.segments);
     renderWheel(cfg.segments);
     renderSegList(cfg.segments, cfg.spinDays);
     updateWheelAvailability(cfg.spinDays);
@@ -1106,6 +1123,32 @@ function renderChallenges(challenges) {
   });
 }
 
+function renderSpinOptions(segments) {
+  var container = document.getElementById('spin-options');
+  if (!container) return;
+  container.innerHTML = '';
+
+  var naDiv = document.createElement('div');
+  naDiv.className = 'option selected';
+  naDiv.setAttribute('data-val', 'NA');
+  naDiv.setAttribute('data-pts', '0');
+  naDiv.setAttribute('data-name', 'N/A');
+  naDiv.setAttribute('onclick', 'selectOption("spin", this)');
+  naDiv.innerHTML = '<div class="option-radio"></div><span>No / not a spin day</span><span class="option-pts"></span>';
+  container.appendChild(naDiv);
+
+  segments.forEach(function(seg) {
+    var div = document.createElement('div');
+    div.className = 'option';
+    div.setAttribute('data-val', seg.name);
+    div.setAttribute('data-pts', seg.points);
+    div.setAttribute('data-name', seg.name);
+    div.setAttribute('onclick', 'selectOption("spin", this)');
+    div.innerHTML = '<div class="option-radio"></div><span>' + seg.name + '</span><span class="option-pts">' + seg.points + ' pts</span>';
+    container.appendChild(div);
+  });
+}
+
 function selectOption(group, el) {
   var container = el.parentElement;
   container.querySelectorAll('.option').forEach(function(o) { o.classList.remove('selected'); });
@@ -1119,7 +1162,7 @@ function selectOption(group, el) {
 }
 
 function updatePointsPreview() {
-  var total = (selections.class.pts || 0) + (selections.steps.pts || 0) + (selections.challenge.pts || 0);
+  var total = (selections.class.pts || 0) + (selections.steps.pts || 0) + (selections.challenge.pts || 0) + (selections.spin.pts || 0);
   var btn = document.getElementById('log-submit-btn');
   var preview = document.getElementById('log-points-preview');
   btn.textContent = total > 0 ? 'Submit, earn ' + total + ' pts today' : 'Submit';
@@ -1142,6 +1185,8 @@ function submitLog() {
     stepsPoints: selections.steps.pts,
     challengeName: selections.challenge.name,
     challengePoints: selections.challenge.pts,
+    spinResult: selections.spin.name,
+    spinPoints: selections.spin.pts,
     comments: document.getElementById('log-comments').value
   };
 
